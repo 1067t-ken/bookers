@@ -1,0 +1,17 @@
+<%= form_with(model: book, url: books_path(@book), local: true) do |form| %>
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+    <% if book.errors.has_key?(:title) %>
+      <ul class="errors">
+        <% book.errors[:title].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+  
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
